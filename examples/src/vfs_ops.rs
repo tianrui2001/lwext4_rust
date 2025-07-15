@@ -61,6 +61,11 @@ pub trait VfsNodeOps: Send + Sync {
         unimplemented!()
     }
 
+    /// The default implementation calls fsync.
+    fn fdatasync(&self) -> Result<usize, i32> {
+        self.fsync()
+    }
+
     /// Truncate the file to the given size.
     fn truncate(&self, _size: u64) -> Result<usize, i32> {
         unimplemented!()
