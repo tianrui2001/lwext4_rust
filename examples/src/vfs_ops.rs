@@ -117,4 +117,24 @@ pub trait VfsNodeOps: Send + Sync {
     fn as_any(&self) -> &dyn core::any::Any {
         unimplemented!()
     }
+
+    pub fn create_symlink(&self, name: &str, target: &str) -> VfsResult {
+         unimplemented!()
+    }
+    
+    pub fn read_link(&self, buf: &mut [u8]) -> VfsResult<usize> {
+         unimplemented!()
+    }
+
+    pub fn set_permission(&self, perm: VfsNodePerm) -> VfsResult {
+         unimplemented!()
+    }
+
+    pub fn set_owner(&self, uid: u32, gid: u32) -> VfsResult {
+         unimplemented!()
+    }
+
+    fn fdatasync(&self) -> Result<usize, i32> {
+        unimplemented!()
+    }
 }
